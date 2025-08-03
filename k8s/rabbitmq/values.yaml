@@ -156,7 +156,7 @@ auth:
   ## @param auth.password RabbitMQ application password
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/rabbitmq#environment-variables
   ##
-  password: ""
+  password: changeme
   ## @param auth.securePassword Whether to set the RabbitMQ password securely. This is incompatible with loading external RabbitMQ definitions and 'true' when not setting the auth.password parameter.
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/rabbitmq#environment-variables
   ##
@@ -676,7 +676,7 @@ extraSecretsPrependReleaseName: false
 
 ## @param replicaCount Number of RabbitMQ replicas to deploy
 ##
-replicaCount: 1
+replicaCount: 2
 ## @param schedulerName Use an alternate scheduler, e.g. "stork".
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
 ##
@@ -1091,9 +1091,9 @@ service:
     amqp: ""
     amqpTls: ""
     dist: ""
-    manager: ""
+    manager: 30300
     epmd: ""
-    metrics: ""
+    metrics: 30301
   ## @param service.extraPorts Extra ports to expose in the service
   ## E.g.:
   ## extraPorts:
