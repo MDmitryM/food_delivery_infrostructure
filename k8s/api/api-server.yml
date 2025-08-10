@@ -42,6 +42,12 @@ spec:
               secretKeyRef:
                     name: auth-sercret
                     key: AUTH_PORT
+                    
+          - name: RABBITMQ_URI
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-svcbind
+                key: uri
 ---
 apiVersion: v1
 kind: Service
