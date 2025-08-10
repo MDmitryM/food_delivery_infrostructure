@@ -1,3 +1,6 @@
 [submodule "services/food_delivery_api"]
 	path = services/food_delivery_api
 	url = git@github.com:MDmitryM/food_delivery_api.git
+[submodule "services/food_delivery_registration"]
+	path = services/food_delivery_registration
+	url = git@github.com:MDmitryM/food_delivery_registration.git
