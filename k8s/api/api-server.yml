@@ -48,6 +48,18 @@ spec:
               secretKeyRef:
                 name: rabbitmq-svcbind
                 key: uri
+          
+          - name: JAEGER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: jaeger-config
+                key: jaeger-url
+        
+          - name: JAEGER_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: jaeger-config
+                key: jaeger-grpc-port
 ---
 apiVersion: v1
 kind: Service

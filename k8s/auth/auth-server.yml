@@ -72,6 +72,18 @@ spec:
               secretKeyRef:
                 name: auth-sercret
                 key: AUTH_DB_PORT
+
+          - name: JAEGER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: jaeger-config
+                key: jaeger-url
+        
+          - name: JAEGER_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: jaeger-config
+                key: jaeger-http-port
 ---
 apiVersion: v1
 kind: Service

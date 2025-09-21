@@ -6,7 +6,7 @@ global:
   imageRegistry:
 
 provisionDataStore:
-  cassandra: true
+  cassandra: false
   elasticsearch: false
   kafka: false
 
@@ -20,7 +20,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 allInOne:
-  enabled: false
+  enabled: true
   replicas: 1
   image:
     registry: ""
@@ -29,7 +29,9 @@ allInOne:
     digest: ""
     pullPolicy: IfNotPresent
     pullSecrets: []
-  extraEnv: []
+  extraEnv:
+    - name: QUERY_BASE_PATH
+      value: /jaeger
   extraSecretMounts:
     []
     # - name: jaeger-tls
@@ -98,7 +100,7 @@ allInOne:
 
 storage:
   # allowed values (cassandra, elasticsearch, grpc-plugin, badger, memory)
-  type: cassandra
+  type: memory
   cassandra:
     host: cassandra
     port: 9042
@@ -377,7 +379,7 @@ ingester:
 agent:
   podSecurityContext: {}
   securityContext: {}
-  enabled: true
+  enabled: false
   annotations: {}
   image:
     registry: ""
@@ -459,7 +461,7 @@ agent:
 collector:
   podSecurityContext: {}
   securityContext: {}
-  enabled: true
+  enabled: false
   annotations: {}
   image:
     registry: ""
@@ -629,7 +631,7 @@ collector:
     #   customRules: []
 
 query:
-  enabled: true
+  enabled: false
   basePath: /
   initContainers: []
   oAuthSidecar:
